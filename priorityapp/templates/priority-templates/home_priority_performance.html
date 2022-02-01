@@ -256,10 +256,7 @@
         {%include 'layouts/footer.html'%}
             
         </footer>
-
-        <p type="hidden" id="thisYear" style="display:none">{% now 'Y' %}</p>
-        
-        
+       
         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -273,12 +270,9 @@
 
         <script class="source" type="text/javascript">
 
-          
-            let thisYear = document.querySelector('#thisYear').innerHTML
-            
             //Offset UTC time
             $('.countdown').downCount({
-                date: '01/31/'+ thisYear +' 12:00:00',
+                date: '02/01/'+ "{{current_year}}" +' 00:00:00',
                 offset: +2
             })
 

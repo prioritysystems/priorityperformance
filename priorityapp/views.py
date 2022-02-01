@@ -56,26 +56,9 @@ def get_string(letters_count, digits_count):
 #Priority Performance Projects 
 def priority_home(request):
 
-    todays_date = date.today()
-
-    current_year = date.today().year
-    
-    previous_year = current_year-1
-    
-    previous_opening_date = datetime.datetime(previous_year,8,1).date()
-    
-    current_opening_date = datetime.datetime(current_year,8,1).date()
-    
-    current_closing_date = datetime.datetime(current_year,1,31).date()
-
-    # nominations_open = todays_date >= nominations_opening_date
-    
-    nominations_open = todays_date <= previous_opening_date and todays_date <= current_closing_date
-    
-
     template = "priority-templates/home_priority_performance.html"
 
-    context = {"nominations_open":nominations_open}
+    context = {"nominations_open":nominations_open,"current_year":current_year}
 
     return render(request,template,context)
 
