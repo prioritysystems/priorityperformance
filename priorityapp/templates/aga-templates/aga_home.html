@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Home|A.G.A</title>
+        <link rel="icon" type="image/x-icon" href="/static/bootstrap/assets/img/logos/aga_logo_final_color.png" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/static/bootstrap/css/styles.css" rel="stylesheet" />
+
+        <style>
+
+        @media (min-width: 768px) {
+            header.masthead {      
+                /* padding-top: 17rem!important; */
+                padding-top: 17rem!important;
+                padding-bottom: 18rem!important;
+                
+            }
+
+        }
+       
+
+    @media (min-width: 1200px){    
+    .container-xl, .container-lg, .container-md, .container-sm, .container {
+        text-align: inherit;
+        
+        }
+
+    }
+
+    #about-text{
+        text-align:left!important;
+    }
+
+    .list-inline {
+   
+        list-style: circle!important;
+        font-size: 1.25rem;
+    }
+
+
+    li {
+        text-align: justify;
+    }
+
+    .portfolio-modal .modal-content ul.list-inline {
+        margin-bottom: 1rem!important;
+        }
+
+    .portfolio-modal .modal-content {
+    padding-top: inherit!important;
+    padding-bottom: 6rem;
+    }
+
+
+    header.masthead {
+    background-image: url("/static/bootstrap/assets/img/logos/aga_logo_final_color.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+    }
+
+    .counter.py-4 {
+        padding-bottom: inherit!important;
+    }
+
+    #profile-text{
+            text-align:left!important;
+        }
+
+   img#partners_img {
+            height: 280px!important;
+            }
+
+
+    .bg-light {
+    background-color: #ffffff!important;
+    }
+    
+
+    h6#quote_text{
+        text-align: left;
+        font-size: 1rem;
+        font-style: italic;
+        font-family: "Droid Serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        font-weight: 400;
+        color: black;
+
+    }
+
+  button.btn.btn-primary {
+    font-size: 2rem!important;
+}
+
+
+
+    </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="/static/bootstrap/assets/img/navbar-logo.svg" alt="" /></a> -->
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ml-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About A.G.A</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#partners">A.G.A Partners</a></li>
+                    <li class="nav-item"><a class="nav-link" data-toggle="modal" href=#nominationCriteria>Criteria and Nomination</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{%url 'viewNominations'%}">Nominations</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{%url 'viewAGAHonours'%}">Honours</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{%url 'priorityHome'%}">Priority Performance</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead" id="home">
+            <div class="container">
+            
+                <div class="masthead-subheading" id="masthead-header">
+                
+                </div>
+               
+            </div>
+            
+        </header>
+
+        <div class="text-left">
+            <h6 class="section-subheading" id="quote_text">“When all is said and done,&nbsp;a genius should have a net positive contribution to society.”-Dr. S Falala</h6>
+        </div>
+
+
+    
+
+
+       <!-- Services--> 
+        <section class="page-section" id="agra-nomination">
+           
+            <div class="container">
+                <div class="text-center">
+                    <!-- <h2 class="section-heading text-uppercase"></h2> -->
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+
+               
+            {%if nominations_open%}
+            
+            <div class="row text-center">
+                   
+                    <a href="{%url 'agraNomination' %}" style="color:#dc3545">
+                        
+                       <div class="col-md-4" id="agra-nomination-circle">
+   
+                           <h2 id="main-page-text" style="color: #1e466f;font-size: 1.85rem;">Nominations will close in</h2>
+                           <span class="main-page-countdown">
+   
+                               {%include 'layouts/countdown.html'%}
+                           
+                           </span>
+                           <h6 class="text-muted"><a href="{%url 'agraNomination' %}" style="color: #1e466f;font-size: 1.85rem;">Click here to nominate</a></h6>
+                       </div>
+                       
+                   </div>
+
+            </div>
+
+            {%else%}
+
+            <div class="row text-center">
+                   
+            
+                    
+                   <div class="col-md-4" id="agra-nomination-circle">
+
+                       <h2 id="main-page-text" style="color: #dc3545;font-size: 1.85rem;">Nominations are currently closed.</h2>
+                                
+                   </div>
+                   
+               </div>
+
+        </div>
+
+            {%endif%}
+
+                
+            </div>
+
+          
+        </section>
+
+
+
+       
+
+        <!-- About-->
+        <section class="page-section" id="about">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">About A.G.A</h2>
+                    <h3 class="section-subheading text-muted">Recognising African Geniuses</h3>
+                </div>
+                <ul class="timeline">
+                    <li>
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" 
+                            src="/static/bootstrap/assets/img/about/1.jpg" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 style="text-align:left!important">Outstanding Contribution</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted" id="about-text">
+                            The A.G.A are a special project undertaken by the company Priority Performance Projects.
+                            They aim to recognise exceptional Africans that have made an outstanding contribution towards the realisation 
+                            of African self-determination, dignity and exceptionalism.
+                            </p></div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/static/bootstrap/assets/img/about/1.jpg" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Exceptional Skills</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted" id="about-text">
+                                Due to the nature of African problems, A.G.A recognise the impact of lack of problem solving skills,
+                                tedious processes and costly methods of commerce and social resourcing and mobilisation.
+                                Exceptional skills in these areas are, among other skills, taken into account in the awards.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="timeline">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/static/bootstrap/assets/img/about/1.jpg" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 style="text-align:left!important">Restoration</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted" id="about-text">
+                                Some of the more direct benefits of the A.G.A will be the promotion of self-confidence, 
+                                self-love and the circulation, and value addition of African resources in African hands. 
+                                Some of the self-doubt and even hatred, in extreme cases, is a consequence of historical victimisation and oppression. 
+                            </p></div>
+                        </div>
+                    </li>
+
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/static/bootstrap/assets/img/about/1.jpg" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Africa's Future</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted" id="about-text">
+                                The A.G.A will go a long way towards reversing the effect and humiliation of systematic subjugation.
+                                The awards are aimed at  motivating all Africans towards superlative performance, but, in particular, 
+                                African children and the African youth. The A.G.A seek to engage with an African youth that believes in a globally competitive Africa.
+                                The awards are however for Africans of all generations and cover both historic times and the present.
+                                The awards event is held annually on Africa Day,May 25th.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    
+
+                    <li class="timeline">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/static/bootstrap/assets/img/about/1.jpg" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4 style="text-align:left!important">Adjudication Committee</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted" id="about-text">    
+                            A.G.A Adjudication Committee Consists of 5 permanent members and 5 rotating members.
+
+                            <br>
+                            
+                            
+                            <br>
+                           
+
+                        </div>
+                        </div>
+                    </li>
+
+                    <li class="timeline-inverted">
+                        <div class="timeline-image"><img class="rounded-circle img-fluid" src="/static/bootstrap/assets/img/about/1.jpg" alt="" /></div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>Nominating African Geniuses</h4>
+                            </div>
+                            <div class="timeline-body"><p class="text-muted" id="about-text">
+                                The nominations are open to the public on the website
+                                <a href="{%url 'agraHome'%}" style="font-size:1rem!important">www.priorityperformance.co.za</a>
+                                <br>
+                                In order to qualify for an A.G.A, a nominee has to meet certain criteria as per the nomination form.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+            
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- Commitee-->
+        <section class="page-section bg-light" id="commitee">
+            <div class="container">
+                <div class="text-center">
+                    <h3 class="section-heading text-uppercase">A.G.A's Permanent Adjudication Committee</h3>
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="/static/bootstrap/assets/img/aga_committee/prof_t_kupe.jpg" alt="" />
+                            <h4>Professor Tawana Kupe</h4>
+                            <p class="text-muted" id="profile-text">  
+                                Vice-Chancellor and Principal of the University of Pretoria. 
+                                Former Vice Principal of the University of Witwatersrand. 
+                                Prof. Kupe holds a PhD in Media Studies that he attained at the University of Oslo (Norway). 
+                                He is a published author of various books, book chapters and journal articles, 
+                                newspaper articles and has worked in the media arena as a radio and television commentator.
+                                He also forms a part of the judging panel of journalism awards whilst also being the Chairman of boards of media NGOs.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="/static/bootstrap/assets/img/aga_committee/prof_friedman.png" alt="" />
+                            <h4>Professor Steven Friedman</h4>
+                            
+                            <p class="text-muted" id="profile-text">
+
+
+                                Director of the Centre for the Study of Democracy at Rhodes University and the University of Johannesburg.
+                                He has conducted research and written studies that concentrate on the transition that South Africa has/is making to democracy prior and after the 1994 elections. 
+                                He is an acclaimed political scientist whose work emphasises equality, economic growth and citizens’ active participation in embracing democracy.
+
+                            </p>
+                           
+                        </div> 
+                    </div>
+
+                    
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="/static/bootstrap/assets/img/team/pm_profile_photo.png" alt="" />
+                            <h4>Dr Pulane Molokwane</h4>
+                            <p class="text-muted" id="profile-text">
+                            Dr Pulane Elsie Molokwane is a Nuclear Physicist and an Environmental Specialist with expertise in ground water remediation,
+                            nuclear waste, process and solid waste management.
+                            She is a registered Radiation Physicist and holds a PhD in Environmental Engineering, M.Sc. (Applied Radiation Science and 
+                            Technology), Post-Graduate Diploma (Applied Radiation Sciences and Technology) and B.Sc.(Physics).
+
+                            </p>
+                           
+                        </div> 
+                    </div>
+
+
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="/static/bootstrap/assets/img/aga_committee/ntsandeni.png" alt="" />
+                            <h4>Fulufhelo Ntsandeni</h4>
+                            <p class="text-muted" id="profile-text">
+
+                                Mr. Fulufhelo has a BCom in Accounting, Auditing, Financial Management and Management Accounting obtained from the University of Cape Town. He is currently the CEO of MIH Advisory and has 12 years experience in the industry.
+                            </p>
+                            
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" style="width:15.5rem; "src="/static/bootstrap/assets/img/aga_committee/simon_gathua.jpeg" alt="" />
+                            <h4>Simon Gathua</h4>
+                            <p class="text-muted" id="profile-text">
+                                
+                                Mr Simon Gathua is a thinker and an author. He holds a senior position at Chartall Business College and has more than 15 years business and academia experience. 
+                                He participated as a research collaborator in various research projects. He worked as a Senior Manager and lecturer in various positions at The Da Vinci Institute for Technology Management. 
+                                He is a member of the following bodies: Golden Key international Honour society, South African Statistical Association (SASA), Institute of Information Technology Professionals (IITPSA),
+                                and The Institute for the Management of Information systems (IMIS - UK).
+                            </p>
+                            
+                        </div>
+                    </div>
+
+
+                           <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" style="width:15.5rem; "src="/static/bootstrap/assets/img/aga_committee/rosaire_ifedi.png" alt="" />
+                            <h4>Dr Rosaire Ifedi</h4>
+                            <p class="text-muted" id="profile-text">
+                                
+                               Dr. Rosaire Ifedi, an Associate Professor in the United States of America in the Department of Educational Foundations and Instruction, joined the Ashland University faculty in 2008. She examines the intersections of race, identity, gender, and achievement in the lives of immigrant, transnational and second language learners as well as in the professional lives of those who educate them. She is author of African-born women faculty in the United States: Lives in contradiction. Dr. Ifedi teaches graduate program courses in curriculum, qualitative inquiry, education of ELL’s and global perspectives in education. The latter involves an optional study away of London - 2014 UK schools.
+                            </p>
+                            
+                        </div>
+                    </div>
+
+
+
+                    
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 mx-auto text-center"><p class="large text-muted"></p></div>
+                </div>
+            </div>
+        </section>
+        <!-- /Team-->
+    
+    
+        <!-- Partners-->
+        <!-- <div class="py-5">
+            <div class="container">
+
+                <div class="text-center">
+                    <h3 class="section-heading text-uppercase">A.G.A Partners</h3>
+                   
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" 
+                            src="/static/bootstrap/assets/img/partners/up_logo_1.png" alt="" 
+                            style=" max-width: fit-content;height: 30%;"/></a> -->
+                    <!-- </div> -->
+                    <!-- <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="/static/bootstrap/assets/img/partners/up_logo_2.jpg" alt="" /></a>
+                    </div> -->
+                    <!-- <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="/static/bootstrap/assets/img/partners/up_logo_3.jpg" alt="" /></a>
+                    </div> -->
+                    <!-- <div class="col-md-3 col-sm-6 my-3">
+                        <a href="#!"><img class="img-fluid d-block mx-auto" src="/static/bootstrap/assets/img/logos/creative-market.jpg" alt="" /></a>
+                    </div> -->
+                <!-- </div>
+            </div>
+        </div> -->
+
+
+        <!-- Portfolio Grid-->
+        <section class="page-section bg-light" id="partners">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">A.G.A Partners</h2>
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+                <div class="row">
+
+                        <div class="col-lg-4 col-sm-6 mb-4">
+                            <div class="portfolio-item">
+                                <a class="portfolio-link" data-toggle="modal" href="">
+                                    <div class="portfolio-hover">
+                                       
+                                    </div>
+                                    <img class="img-fluid" src="/static/bootstrap/assets/img/partners/up_logo_portrait.jpg" alt="" id="partners_img"
+                                    style=" max-width:100%;"/>
+                                </a>
+                                <div class="portfolio-caption">
+                                    <div class="portfolio-caption-heading"></div>
+                                    <div class="portfolio-caption-subheading text-muted"><a href="https://www.up.ac.za" style="font-size: 1rem;">www.up.ac.za</a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+                    <div class="col-lg-3 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="">
+                                <div class="portfolio-hover">
+                                   
+                                </div>
+                                <img class="img-fluid" src="/static/bootstrap/assets/img/partners/uj_logo.jpg" alt="" id="partners_img"
+                                style=" max-width:100%;padding-bottom: 4px!important;"/>
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"></div>
+                                <div class="portfolio-caption-subheading text-muted"><a href="https://www.uj.ac.za" style="font-size: 1rem;">www.uj.ac.za</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="">
+                                <div class="portfolio-hover">
+                                   
+                                </div>
+                                <img class="img-fluid" src="/static/bootstrap/assets/img/partners/plus94_logo_1.png" alt="" 
+                                style=" max-width:100%;height: 140px;margin-top: 65px;"/>
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"></div>
+                                <div class="portfolio-caption-subheading text-muted"><a href="http://plus94.co.za" style="font-size: 1rem;">www.plus94.co.za</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                
+
+
+                        <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="">
+                                <div class="portfolio-hover">
+                                   
+                                </div>
+                                <img class="img-fluid" src="/static/bootstrap/assets/img/partners/african_dream.jpg" alt="" id="partners_img"
+                                style=" max-width:100%;padding-bottom: 4px!important;"/>
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"></div>
+                                <div class="portfolio-caption-subheading text-muted"><a href="https://the-african-dream.com" style="font-size: 1rem;">www.the-african-dream.com</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="">
+                                <div class="portfolio-hover">
+                                </div>
+                                <img class="img-fluid" src="/static/bootstrap/assets/img/partners/702_logo.jpg" alt="" id="partners_img"
+                                style=" max-width:100%;padding-bottom: 4px!important;"/>
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"></div>
+                                <div class="portfolio-caption-subheading text-muted"><a href="https://702.co.za" style="font-size: 1rem;">www.702.co.za</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+                     <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="">
+                                <div class="portfolio-hover">
+                                </div>
+                                <img class="img-fluid" src="/static/bootstrap/assets/img/partners/cmmi_logo.png" alt="" id="partners_img"
+                                style=" max-width:100%;"/>
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"></div>
+                                <div class="portfolio-caption-subheading text-muted"><a href="https://cmmi.org.za" style="font-size: 1rem;">www.cmmi.org.za</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-7 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="">
+                                <div class="portfolio-hover">
+                                   
+                                </div>
+                                <img class="img-fluid" 
+                                src="/static/bootstrap/assets/img/partners/GIBS_logo_horizontal.jpg" alt="" 
+                                style=" max-width:100%;"/>
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"></div>
+                                <div class="portfolio-caption-subheading text-muted"><a href="https://gibs.co.za" style="font-size: 1rem;">www.gibs.co.za</a></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+        
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="">
+                                <div class="portfolio-hover">
+                                   
+                                </div>
+                                <img class="img-fluid" 
+                                src="/static/bootstrap/assets/img/partners/project_ndinhle_logo.png" alt="" 
+                                style=" max-width:70%!important;"/>
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"></div>
+                                <div class="portfolio-caption-subheading text-muted"><a href=""style="font-size: 1rem;"></a></div>
+                            </div>
+                        </div>
+                  
+
+                        <!--Add more-->
+
+                        <div class="col-lg-4 col-sm-6 mb-4">
+                            <div class="portfolio-item">
+                                <a class="portfolio-link" data-toggle="modal" href="">
+                                    <div class="portfolio-hover">
+                                       
+                                    </div>
+                                    <img class="img-fluid" src="" alt="" id="partners_img"
+                                    style=" max-width:100%;"/>
+                                </a>
+                                <div class="portfolio-caption">
+                                    <div class="portfolio-caption-heading"></div>
+                                    <div class="portfolio-caption-subheading text-muted"><a href="" style="font-size: 1rem;"></a></div>
+                                </div>
+                            </div>
+                        </div>
+
+                    
+                    <div class="col-lg-3 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="">
+                                <div class="portfolio-hover">
+                                   
+                                </div>
+                                <img class="img-fluid" src="" alt="" id="partners_img"
+                                style=" max-width:100%;padding-bottom: 4px!important;"/>
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"></div>
+                                <div class="portfolio-caption-subheading text-muted"><a href="" style="font-size: 1rem;"></a></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href="">
+                                <div class="portfolio-hover">
+                                   
+                                </div>
+                                <img class="img-fluid" src="" alt="" 
+                                style=" max-width:100%;height: 140px;margin-top: 65px;"/>
+                            </a>
+                            <div class="portfolio-caption">
+                                <div class="portfolio-caption-heading"></div>
+                                <div class="portfolio-caption-subheading text-muted"><a href="" style="font-size: 1rem;"></a></div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    
+                </div>
+                            
+            </div>
+        </section>
+    
+
+        <div class="portfolio-modal modal fade" id="nominationCriteria"  tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+
+                <!--     <div class="close-modal" data-dismiss="modal"><img src="/static/bootstrap/assets/img/close-icon.svg" alt="Close modal" style="background-color: #ffff!important;" /></div> -->
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                   
+                                    <h3 class="section-subheading text-muted" style="font-size:1.75rem!important;font-weight:bold!important">
+                                        </h3>
+                                    <img class="img-fluid d-block mx-auto" 
+                                    src="/static/bootstrap/assets/img/logos/aga_logo_final_color.png" alt="" style=" max-width: 50%!important"/>
+
+                                    <h3 class="text-uppercase">Criteria and Nominations</h3>
+                                   
+                                    <ul class="list-group">
+
+                                        <p>The African Genius Awards invite nominations of individuals who possess unique, rare attributes, characteristics and skills who have used them to address challenges or exploit opportunities to impact African societies in ways that are uplifting, transformative, build the esteem of Africans and inspire them to make significant contributions to the continent and its countries’ development in specific ways, sectors and in general.</p>
+
+                                        <li class="list-group-item">Only one nomination is allowed. The number of nominations has no bearing on the judging.</li>
+
+                                        <li class="list-group-item">Nominations are for individuals only, not groups, entities or companies.
+                                        </li>
+
+                                        <li class="list-group-item">The talent, attributes, skill(s) and their rarity of the nominee need to be specified, identifiable and substantiated.</li>
+
+                                        <li class="list-group-item">The relevance of the skill(s) of the nominee in relation of the needs of African and the specific issues challenges, opportunities or problems they address should be clearly stated.</li>
+
+                                        <li class="list-group-item">Evidence of unique application of the skill or unique talent to resolve, address unique African challenges id required.</li>
+
+                                        <li class="list-group-item">Professional or official recognition, awards and endorsements received, or justification of exclusion(from recognition) for marginalized and disadvantaged groups</li>
+                                                            
+                                        </ul>
+                                    <br>
+
+                                   
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                        <i class="fas fa-times-circle"></i>
+                                        
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase">Contact Us</h2>
+                    <h3 class="section-subheading" id="co-contact-text">+27 11 327 2020</h3>
+                    <h3 class="section-subheading" id="co-contact-text">aga@priorityperformance.co.za</h3>
+                    
+                </div>
+                </div>
+        </section>
+ 
+        
+        <!-- Footer-->
+        {%include 'layouts/footer.html'%}
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Contact form JS-->
+        <script src="/static/bootstrap/assets/mail/jqBootstrapValidation.js"></script>
+        <script src="/static/bootstrap/assets/mail/contact_me.js"></script>
+        <!-- Core theme JS-->
+        <script src="/static/bootstrap/js/scripts.js"></script>
+        <script src="/static/bootstrap/js/jquery.downCount.js"></script>
+
+        <script class="source" type="text/javascript">
+
+            //Offset UTC time
+            $('.countdown').downCount({
+                date: '02/01/'+ "{{current_year}}" +' 00:00:00',
+                offset: +2
+            })
+
+        </script>
+
+    </body>
+</html>

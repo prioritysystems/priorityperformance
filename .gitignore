@@ -1,0 +1,7 @@
+.env
+*.pyc
+**/migrations
+**/__pycache__
+*.log
+!/__pycache__
+!priorityperformance/__pycache__/

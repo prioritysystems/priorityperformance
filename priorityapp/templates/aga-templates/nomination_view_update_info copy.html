@@ -1,0 +1,1126 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>A.G.A|View Info</title>
+  <link rel="icon" type="image/x-icon" href="/static/bootstrap/assets/img/logos/aga_logo_final_color.png" />
+  <link rel="stylesheet" type="text/css" href="/static/forms/vendor/select2/select2.min.css">
+  <link rel="stylesheet" type="text/css" href="/static/forms/css/util.css">
+ 
+    
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet"
+    type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+ 
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="/static/bootstrap/css/styles.css" rel="stylesheet" />
+
+  <style>
+
+    .container-form {
+      width: 100%;
+      min-height: 100vh;
+
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+      background-image: url("/static/bootstrap/assets/img/logos/ppp_final_logo_no_text_color.png");
+      background-repeat: revert;
+      background-size: auto;
+      background-position: cover;
+      background-color: #0a181b;
+
+    }
+
+    .wrap-form {
+      width: 800px;
+      background: #fff;
+      /* background: #405265; */
+      border-radius: 10px;
+      overflow: hidden;
+      padding: 42px 25px 45px 25px;
+      margin-top: 138px;
+      color: #000000;
+      font-size: 1.15rem;
+    }
+
+    .contact100-form {
+      width: 100%;
+    }
+
+    .contact100-form-title {
+      display: block;
+      font-size: 26px;
+      font-family: "Poppins-Regular", "sans-serif", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+      color: #48709a;
+      line-height: 1.2;
+      text-align: left;
+      padding-bottom: 44px;
+     
+    }
+
+    /*------------------------------------------------------------------
+[ Button ]*/
+    .container-contact100-form-btn {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-top: 13px;
+    }
+
+    .wrap-contact100-form-btn {
+      width: 100%;
+      display: block;
+      position: relative;
+      z-index: 1;
+      border-radius: 25px;
+      overflow: hidden;
+      margin: 0 auto;
+    }
+
+    /*---------------------------------------------*/
+    button {
+      outline: none !important;
+      border: none;
+      /* background: transparent; */
+      background: #c1313f;
+      font-family: inherit!important;
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+
+    .contact100-form-btn {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+      width: 100%;
+      height: 50px;
+
+      font-family: Poppins-Medium;
+      font-size: 16px;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .asteriskField {
+      display: none;
+    }
+
+
+  .svg-inline--fa {
+    vertical-align: middle!important;
+    }
+
+    ul.messages {
+    color: #dc3545;
+    font-size: 1.25rem;
+}
+
+
+li {
+    text-align: justify;
+}
+
+.list-inline {
+    list-style: circle!important;
+    font-size: 1.25rem;
+}
+
+
+.help-block {
+   
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+
+
+
+  </style>
+</head>
+
+<body id="page-top">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+    <div class="container">
+        <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="/static/bootstrap/assets/img/navbar-logo.svg" alt="" /></a> -->
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars ml-1"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav text-uppercase ml-auto">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{%url 'agraHome'%}">Home</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="modal" href=#nominationCriteria>Criteria and Nomination</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{%url 'viewNominations'%}">Nominations</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{%url 'priorityHome'%}">Priority Performance</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+  {%if is_date_valid_for_update%}
+  <div class="container-form">
+    <div class="wrap-form">
+      <span class="contact100-form-title">
+        The African Genius Award is a highly regarded accolade.
+        It is important to familiarise yourself with the nomination criteria.
+      </span>   
+      <form class="contact100-form validate-form" method="post" novalidate
+      enctype="multipart/form-data">
+        
+        {%csrf_token%}
+        {{ form.non_field_errors }}
+        <div class="form-group">
+
+          <!--With Crispy Forms, the label_tag is not necessary-->
+        
+          {%if messages%}
+          <ul class="messages">
+            {% for message in messages %}
+            <li
+            {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
+          <p style="font-size:1.15rem;color:#48709a"><strong>NOMINEE'S INFORMATION</strong>
+          {{ form.sec_a_q1|as_crispy_field}}
+          <p><strong>{{ form.sec_a_q1.errors }}</strong></p>
+        </div>
+
+        <div class="form-group">
+            
+          {{ form.sec_a_q2|as_crispy_field }}
+          <p><strong>{{ form.sec_a_q2.errors }}</strong></p>
+        </div>
+
+        <div class="form-group">
+          
+          {{ form.sec_a_q3|as_crispy_field }}
+          <p><strong>{{ form.sec_a_q3.errors }}</strong></p>
+        </div>
+
+        <div class="form-group">
+
+          
+          {{ form.sec_a_q3_other|as_crispy_field }}
+          <p><strong>{{ form.sec_a_q3_other.errors }}</strong></p>
+        </div>
+
+        <div class="form-group">
+
+          
+          {{ form.sec_a_q4|as_crispy_field }}
+          <p><strong>{{ form.sec_a_q4.errors }}</strong></p>
+        </div>
+
+
+        <div class="form-group">
+
+         
+          {{ form.sec_a_q5|as_crispy_field }}
+          <p><strong>{{ form.sec_a_q5.errors }}</strong></p>
+        </div>
+
+        <div class="form-group">
+
+          
+          {{ form.sec_a_q6|as_crispy_field }}
+          <p><strong>{{ form.sec_a_q6.errors }}</strong></p>
+        </div>
+
+        <div class="form-group">
+        </div>
+
+        <div class="form-group">
+        </div>
+
+        <div class="form-group">
+
+          <p style="font-size:1.15rem;color:#48709a"><strong>MOTIVATION ACCORDING TO CRITERIA</strong>
+          {{ form.sec_b_q1|as_crispy_field }}
+          <p><strong>{{ form.sec_a_q1.errors }}</strong></p>
+        </div>
+
+        <div class="form-group">
+
+        
+          {{ form.sec_b_q1_1|as_crispy_field}}
+          <p><strong>{{ form.sec_b_q1_1.errors }}</strong></p>
+        </div>
+
+        <div class="form-group">
+
+          {{ form.sec_b_q1_2.label_tag }}
+          {{ form.sec_b_q1_2 }}
+          <p><strong>{{ form.sec_b_q1_2.errors }}</strong></p>
+        </div>
+
+        <div class="form-group">
+
+          {{ form.sec_b_q2.label_tag }}
+          {{ form.sec_b_q2 }}
+          <p><strong>{{ form.sec_b_q2.errors }}</strong></p>
+        </div>
+
+        <div class="form-group">
+
+          {{ form.sec_b_q3.label_tag }}
+          {{ form.sec_b_q3}}
+          <p><strong>{{ form.sec_b_q3.errors }}</strong></p>
+        </div>
+
+
+        <div class="form-group">
+
+          {{ form.sec_b_q3_1.label_tag }}
+          {{ form.sec_b_q3_1 }}
+          <p><strong>{{ form.sec_b_q3_1.errors }}</strong></p>
+        </div>
+
+        <div class="form-group" style="display: none">
+        </div>
+
+
+        <div class="form-group">
+
+          {{ form.sec_b_q5.label_tag }}
+          {{ form.sec_b_q5}}
+          <p><strong>{{ form.sec_b_q5.errors }}</strong></p>
+        </div>
+
+
+        <div class="form-group">
+
+          {{ form.sec_b_q5_1.label_tag }}
+          {{ form.sec_b_q5_1 }}
+          <p><strong>{{ form.sec_b_q5_1.errors }}</strong></p>
+        </div>
+
+
+        <div class="form-group">
+
+          {{ form.sec_b_q5_2.label_tag }}
+          {{ form.sec_b_q5_2 }}
+          <p><strong>{{ form.sec_b_q5_2.errors }}</strong></p>
+        </div>
+
+
+
+
+        <div class="form-group">
+
+          {{ form.sec_b_q6.label_tag }}
+          {{ form.sec_b_q6}}
+          <p><strong>{{ form.sec_b_q6.errors }}</strong></p>
+        </div>
+
+
+        <div class="form-group">
+
+          {{ form.sec_b_q6_1.label_tag }}
+          {{ form.sec_b_q6_1 }}
+          <p><strong>{{ form.sec_b_q6_1.errors }}</strong></p>
+        </div>
+
+
+        <div class="form-group">
+
+          {{ form.sec_b_q6_2.label_tag }}
+          {{ form.sec_b_q6_2 }}
+          <p><strong>{{ form.sec_b_q6_2.errors }}</strong></p>
+        </div>
+
+
+        <div class="form-group">
+
+          {{ form.sec_b_q6_3.label_tag }}
+          {{ form.sec_b_q6_3 }}
+          <p><strong>{{ form.sec_b_q6_3.errors }}</strong></p>
+        </div>
+
+
+
+        <div class="form-group">
+
+          {{ form.sec_b_q7.label_tag }}
+          {{ form.sec_b_q7 }}
+          <p><strong>{{ form.sec_b_q7.errors }}</strong></p>
+        </div>
+
+        <div class="form-group">
+
+          {{ form.sec_b_q8.label_tag }}
+          {{ form.sec_b_q8 }}
+          <p><strong>{{ form.sec_b_q8.errors }}</strong></p>
+        </div>
+
+        
+        <div class="form-group">
+
+          {{ form.nominee_image.label_tag }}
+          {{ form.nominee_image }}
+          <p><strong>{{ form.nominee_image.errors }}</strong></p>
+        </div>
+
+        <div class="form-group">
+
+          <p style="font-size:1.15rem;color:#48709a"><strong>NOMINATOR'S INFORMATION</strong></p>
+          <span>First Name</span>
+          {{ form.sec_c_first_name }}
+          <p><strong>{{ form.sec_c_first_name.errors }}</strong></p>
+        </div>
+
+        <div class="form-group">
+
+          <span>Surname</span>
+          {{ form.sec_c_surname }}
+          <p><strong>{{ form.sec_c_surname.errors }}</strong></p>
+        </div>
+
+
+        <div class="form-group">
+
+          <span>Country of Residence</span>
+          {{ form.sec_c_country_of_residence }}
+          <p><strong>{{ form.sec_c_country_of_residence.errors }}</strong></p>
+        </div>
+
+
+
+        <div class="form-group">
+
+          <span>State your Citizenship</span>
+          {{ form.sec_c_citizenship }}
+          <p><strong>{{ form.sec_c_citizenship.errors }}</strong></p>
+        </div>
+
+
+        <div class="form-group">
+
+          <span>Contact Number</span>
+          {{ form.sec_c_contact_number }}
+          <p><strong>{{ form.sec_c_contact_number.errors }}</strong></p>
+        </div>
+
+
+        <div class="form-group">
+
+          <span>Mobile Number</span>
+          {{ form.sec_c_cell_number }}
+          <p><strong>{{ form.sec_c_cell_number.errors }}</strong></p>
+        </div>
+
+
+
+
+        <div class="form-group">
+
+          <span>Contact E-mail address</span>
+            {{ form.sec_c_email_address }}
+          <p><strong>{{ form.sec_c_email_address.errors }}</strong></p>
+        </div>
+
+        <div style="display:none">{{ form.image_ref}}</div>
+        
+        <div class="container-contact100-form-btn" id="nomination_submission_form">
+          <div class="wrap-contact100-form-btn">
+            <div class="contact100-form-bgbtn"></div>
+            <button class="contact100-form-btn" id="submit_btn" style="background: #5373a7;">
+              <span>
+                Update
+              </span>
+            </button>
+          </div>
+        </div>
+
+     
+      </form>
+
+      <div class="container-contact100-form-btn">
+        <div class="wrap-contact100-form-btn">
+          <div class="contact100-form-bgbtn"></div>
+          <button class="contact100-form-btn" id="cancel_btn">
+            <span>
+              Cancel
+            </span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  {%else%}
+
+  <div class="container-form">
+    <div class="wrap-form">
+      <span class="contact100-form-title">
+        The nominations are closed. Below are the details for a previously submitted nomination.
+      </span>   
+    
+        <p style="font-size:1.15rem;color:#48709a"><strong>NOMINEE'S INFORMATION</strong>
+        <div class="form-group">
+
+          <!--With Crispy Forms, the label_tag is not necessary-->
+          
+          
+          <span>Please provide the nominee’s full name</span>
+
+          <p type="text" class="form-group form-control">{{nominee.sec_a_q1}}</p>
+
+        </div>
+
+        <div class="form-group">
+
+
+          <span>Please state the nominee's Country of residence</span>  
+          <p type="text" class="form-group form-control">{{nominee.sec_a_q2}}</p>
+        
+        </div>
+
+
+        <div class="form-group">
+          <span>What is your relationship to the Nominee?</span>  
+          <p type="text" class="form-group form-control">{{nominee.sec_a_q3}}</p>
+        </div>
+
+        {%if nominee.sec_a_q3_other != ''%}
+        <div class="form-group">
+        <textarea class="form-group form-control" readonly style="background-color: #ffffff;">{{nominee.sec_a_q3_other}}</textarea>         
+        </div>
+        {%endif%}
+
+        <div class="form-group">
+          <span>What is the gender of the nominee?</span>  
+          <p type="text" class="form-group form-control">{{nominee.sec_a_q4}}</p>
+        </div>
+       
+        <div class="form-group">
+          <span>For statistical purposes please confirm the ethnic group of the nominee?</span>  
+          <p type="text" class="form-group form-control">{{nominee.sec_a_q5}}</p>
+          
+        </div>
+
+
+        <div class="form-group">
+          <span>In which city is/was the nominee based?</span>  
+          <p type="text" class="form-group form-control">{{nominee.sec_a_q6}}</p>
+        </div>
+
+        <div class="form-group">
+          <span>In which time period was the genius demonstrated?</span>  
+          <p type="text" class="form-group form-control">{{nominee.sec_a_q7}}</p>    
+        </div>
+
+        {%if nominee.sec_a_q7_1 != ''%}
+        <div class="form-group">
+          <span>Besides the time period selected above, if applicable,
+            please select another time period where the nominee demonstrated ingenuity.</span>  
+          <p type="text" class="form-group form-control">{{nominee.sec_a_q7_1}}</p>  
+         
+        </div>
+        {%endif%}
+
+        <p style="font-size:1.15rem;color:#48709a"><strong>MOTIVATION ACCORDING TO CRITERIA</strong>
+
+        <div class="form-group">
+          <span>Please state the main motivation behind your nomination?</span>  
+          <textarea class="form-group form-control" readonly style="background-color: #ffffff;">{{nominee.sec_b_q1}}</textarea>
+        </div>
+
+
+        <div class="form-group">
+          <span>Advise on the skill category or type of skill that your nomination is based on?</span>  
+          <textarea class="form-group form-control" readonly style="background-color: #ffffff;">{{nominee.sec_b_q1_1}}</textarea>    
+        </div>
+
+    
+        <div class="form-group">
+          <span>Please provide clarity and a definition of the unique skill recognised above?</span>  
+          <textarea class="form-group form-control" readonly style="background-color: #ffffff;">{{nominee.sec_b_q1_2}}</textarea>
+        </div>
+
+        <div class="form-group">
+          
+          <span>How easy is it for this unique skill to be recognised or appreciated by others and why?</span>  
+          <textarea class="form-group form-control" readonly style="background-color: #ffffff;">{{nominee.sec_b_q2}}</textarea>   
+        </div>
+
+        <div class="form-group">
+          {{ form.sec_b_q3.label_tag }}
+          <p type="text" class="form-group form-control">{{nominee.sec_b_q3}}</p>    
+        </div>
+
+        <div class="form-group">
+          {{ form.sec_b_q3_1.label_tag }}
+          <textarea class="form-group form-control" readonly style="background-color: #ffffff;">{{nominee.sec_b_q3_1}}</textarea>  
+        </div>
+
+        <div class="form-group" style="display: none">
+        </div>
+
+
+        <div class="form-group">
+
+          {{ form.sec_b_q5.label_tag }}
+          <textarea class="form-group form-control" readonly style="background-color: #ffffff;">{{nominee.sec_b_q5}}</textarea>
+        </div>
+
+
+        <div class="form-group">
+
+          {{ form.sec_b_q5_1.label_tag }}
+          <textarea class="form-group form-control" readonly style="background-color: #ffffff;">{{nominee.sec_b_q5_1}}</textarea>
+        </div>
+
+        <div class="form-group">
+
+          {{ form.sec_b_q5_2.label_tag }}
+          <textarea class="form-group form-control" readonly style="background-color: #ffffff;">{{nominee.sec_b_q5_2}}</textarea>
+        </div>
+
+        <div class="form-group">
+          {{ form.sec_b_q6.label_tag }}
+          <p type="text" class="form-group form-control">{{nominee.sec_b_q6}}</p>
+        </div>
+
+
+        {%if nominee.sec_b_q6_1 != ''%}
+        <div class="form-group">
+
+          {{ form.sec_b_q6_1.label_tag }}
+          <textarea class="form-group form-control" readonly style="background-color: #ffffff;">{{nominee.sec_b_q6_1}}</textarea>
+        </div>
+        {%endif%}
+
+
+        {%if nominee.sec_b_q6_2 != ''%}
+        <div class="form-group">
+          {{ form.sec_b_q6_2.label_tag }}
+          <textarea class="form-group form-control" readonly style="background-color: #ffffff;">{{nominee.sec_b_q6_2}}</textarea>
+        </div>
+          {%endif%}
+
+          {%if nominee.sec_b_q6_3 != ''%}
+        <div class="form-group">
+          {{ form.sec_b_q6_3.label_tag }}
+          <textarea class="form-group form-control" readonly style="background-color: #ffffff;">{{nominee.sec_b_q6_3}}</textarea>
+        </div>
+        {%endif%}
+
+        <div class="form-group">
+
+          {{ form.sec_b_q7.label_tag }}
+        <textarea class="form-group form-control" readonly style="background-color: #ffffff;">{{nominee.sec_b_q7}}</textarea>
+        </div>
+
+        <div class="form-group">
+          {{ form.sec_b_q8.label_tag }}
+          <textarea class="form-group form-control" readonly style="background-color: #ffffff;">{{nominee.sec_b_q8}}</textarea>
+        </div>
+
+        <div class="form-group">
+
+          <p style="font-size:1.15rem;color:#48709a"><strong>NOMINATOR'S INFORMATION</strong></p>
+          <span>First Name</span>
+        
+          <p type="text" class="form-group form-control">{{nominee.sec_c_first_name}}</p>
+        </div>
+
+        <div class="form-group">
+
+          <span>Surname</span>
+          <p type="text" class="form-group form-control">{{nominee.sec_c_surname}}</p>
+        </div>
+
+
+        <div class="form-group">
+
+          <span>Country of Residence</span>
+   
+          <p type="text" class="form-group form-control">{{nominee.sec_c_country_of_residence}}</p>
+        </div>
+
+
+
+        <div class="form-group">
+
+          <span>State your Citizenship</span>
+          
+          <p type="text" class="form-group form-control">{{nominee.sec_c_citizenship}}</p>
+        </div>
+
+
+        <div class="form-group">
+
+          <span>Contact Number</span>
+        
+          <p type="text" class="form-group form-control">{{nominee.sec_c_contact_number}}</p>
+        </div>
+
+
+        <div class="form-group">
+
+          <span>Mobile Number</span>
+          
+          <p type="text" class="form-group form-control">{{nominee.sec_c_cell_number}}</p>
+        </div>
+
+        <div class="form-group">
+
+          <span>Contact E-mail address</span>
+           
+            <p type="text" class="form-group form-control">{{nominee.sec_c_email_address}}</p>
+        </div>
+
+      <div class="container-contact100-form-btn">
+        <div class="wrap-contact100-form-btn">
+          <div class="contact100-form-bgbtn"></div>
+          <button class="contact100-form-btn" id="cancel_btn">
+            <span>
+              Close
+            </span>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  {%endif%}
+
+
+    <!--Criteria Modal-->
+        <div class="portfolio-modal modal fade" id="nominationCriteria"  tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="close-modal" data-dismiss="modal"><img src="/static/bootstrap/assets/img/close-icon.svg" alt="Close modal" /></div>
+                  <div class="container">
+                      <div class="row justify-content-center">
+                          <div class="col-lg-8">
+                              <div class="modal-body">
+                                
+                                  <h3 class="text-uppercase">Criteria and Nominations</h3>
+                                  <h3 class="section-subheading text-muted" style="font-size:1.75rem!important;font-weight:bold!important">
+                                      </h3>
+                                  <img class="img-fluid d-block mx-auto" 
+                                  src="/static/bootstrap/assets/img/logos/aga_logo_final_color.png" alt="" style=" max-width: 100%!important"/>
+                                
+                                  <ul class="list-inline">
+                                      
+                                      <li>
+                                          Clarity and definition of the unique talent and its official classification – the skill needs to be
+                                          pinpointed, for example, fame is not a skill, but could be a result of a skill, what is the skill?
+                                          Nominations need to state what the skill category is. The A.G.A will not prescribe or limit skill
+                                          categories.
+                                      </li>
+                                      
+                                      <li>
+                                          Rarity of the unique talent or skill. How rare is this skill in the country, in the world etc. The
+                                          nomination needs to state the rarity of the skill and substantiate such a conclusion.
+                                      </li>
+
+                                      <li>
+                                          Relevance of the skill in terms of the needs of African people to improve their self esteem,
+                                          problem solving and standard of living. Which important problem does the skill or genius
+                                          address? Why is it important to solve this problem?
+                                      </li>
+                                          
+                                      <li>
+                                          Proof of application of the skill or unique talent to resolve the problems of self esteem, lack of
+                                          recognition, problem solving and standard of living of Africans. How has the nominee distinguished
+                                          themselves in addressing these unique African challenges.</li>
+
+                                      <li> 
+                                          Skill replication, and the ability of the nominee to influence and train protégés to desire to possess
+                                          and express the same skill. To what extent has the nominee gone out of their way to try and share
+                                          their skill? This needs to be substantiated.
+                                      </li>
+
+                                      <li>
+                                          Written and contactable public testimonies of those affected by the nominee of not more than 300
+                                          words. The A.G.A will invite the public to submit testimonies. The adjudication will be done on an equal
+                                          number of testimonies not less than 10 per nominee.
+                                      </li>
+                                          
+                                      <li>
+                                          Professional or official recognition, awards and endorsements received, or justification of
+                                          exclusion(from recognition) for marginalized and disadvantaged groups.</li>
+                                  </ul>
+                                  <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                      <i class="fas fa-times-circle"></i>
+                                      
+                                  </button>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+        <!--Criteria Modal-->
+
+
+{%include 'layouts/footer.html'%}
+
+
+  <!-- Bootstrap core JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Third party plugin JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <!-- Contact form JS-->
+  <script src="/static/bootstrap/assets/mail/jqBootstrapValidation.js"></script>
+  <script src="/static/bootstrap/assets/mail/contact_me.js"></script>
+  <!-- Core theme JS-->
+  <script src="/static/bootstrap/js/scripts.js"></script>
+
+  <script src="/static/autosize/dist/autosize.min.js"></script>
+
+  <!--For Autocomplete-->
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+ 
+
+
+  <script>
+
+autosize(document.querySelectorAll('textarea'));
+
+if('{{is_date_valid_for_update}}' == 'True'){
+
+    $(document).ready(() =>{       
+
+      if(document.querySelector('#id_sec_a_q3').value == 'Other'){
+        
+        document.querySelector("#div_id_sec_a_q3_other").hidden = false
+        autosize(document.querySelectorAll('textarea'));
+
+      }
+
+      else{
+
+        document.querySelector("#div_id_sec_a_q3_other").hidden = true
+
+      }
+
+  
+
+    
+
+
+      if(document.querySelector('#id_sec_b_q6').value == 'Yes'){
+
+        // document.querySelector('#div_id_sec_b_q6_1').hidden = false;
+
+        document.querySelector("#page-top > div > div > form > div:nth-child(22)").hidden = false
+        
+         //6_2 div
+        document.querySelector("#page-top > div > div > form > div:nth-child(23)").hidden = true
+
+        //6_3 div
+        document.querySelector("#page-top > div > div > form > div:nth-child(24)").hidden = true
+
+  
+      }
+
+    
+
+
+
+      if(document.querySelector('#id_sec_b_q6').value == 'No' && document.querySelector('#id_sec_b_q6_2').value == 'No' ){
+
+        console.log("6 no, 6.2 no")
+        //6_1
+        document.querySelector("#page-top > div > div > form > div:nth-child(22)").hidden = true;
+
+        //6_2
+        document.querySelector("#page-top > div > div > form > div:nth-child(23)").hidden = false;
+
+        //6_3
+        document.querySelector("#page-top > div > div > form > div:nth-child(24)").hidden = true;
+        
+        }
+
+
+
+
+      if(document.querySelector('#id_sec_b_q6').value == '' && document.querySelector('#id_sec_b_q6_2').value == ''){
+        
+        //6_1
+        document.querySelector("#page-top > div > div > form > div:nth-child(22)").hidden = true;
+
+        //6_2
+        document.querySelector("#page-top > div > div > form > div:nth-child(23)").hidden = true;
+
+        //6_3
+        document.querySelector("#page-top > div > div > form > div:nth-child(24)").hidden = true;
+    
+        }
+
+
+      if(document.querySelector('#id_sec_b_q6').value != 'Yes'){
+
+        // document.querySelector('#div_id_sec_b_q6_2').hidden = false;
+
+        }
+
+      else{
+
+        // document.querySelector('#div_id_sec_b_q6_2').hidden = true;
+
+      } 
+
+
+      if(document.querySelector('#id_sec_b_q6_2').value == 'Yes'){
+
+        //6_3
+        document.querySelector("#page-top > div > div > form > div:nth-child(24)").hidden = false
+        // document.querySelector("#page-top > div > div > form > div:nth-child(25)").hidden = true
+        autosize(document.querySelectorAll('textarea'));
+      
+
+        }
+
+        if(document.querySelector('#id_sec_b_q6_2').value != 'Yes' && document.querySelector('#id_sec_b_q6').value != 'Yes' ){
+
+          document.querySelector("#page-top > div > div > form > div:nth-child(24)").hidden = true
+          // document.querySelector("#page-top > div > div > form > div:nth-child(25)").hidden = true
+
+        }
+
+
+        
+        if(document.querySelector('#id_sec_b_q6').value == 'No'){
+
+        console.log("6 no")
+        //6_1
+        document.querySelector("#page-top > div > div > form > div:nth-child(22)").hidden = true;
+
+        
+        }
+
+      
+     
+
+    autosize(document.querySelectorAll('textarea'));
+    
+    //Change selectize mode to be searchable
+    $('#id_sec_a_q2, #id_sec_c_country_of_residence').select2({
+      placeholder: 'Select...',
+      allowClear: false,
+    });
+
+
+
+    $('#id_sec_a_q3').on('change',()=> {
+
+    
+
+    if(document.querySelector('#id_sec_a_q3').value == 'Other'){
+
+      document.querySelector("#div_id_sec_a_q3_other").hidden = false
+      document.querySelector('#id_sec_a_q3_other').required = true;
+      
+    }
+    if(document.querySelector('#id_sec_a_q3').value != 'Other'){
+
+    document.querySelector("#div_id_sec_a_q3_other").hidden = true;
+    document.querySelector('#id_sec_a_q3_other').value = '';
+    document.querySelector('#id_sec_a_q3_other').required = false;
+    }
+
+
+    })
+
+
+      $('#id_sec_b_q6').on('change',()=> {
+
+      if(document.querySelector('#id_sec_b_q6').value == 'Yes'){
+        
+
+      document.querySelector("#page-top > div > div > form > div:nth-child(22)").hidden = false
+      document.querySelector('#id_sec_b_q6_1').required = true;
+
+      document.querySelector("#page-top > div > div > form > div:nth-child(23)").hidden = true
+
+      //Clear these fields
+      document.querySelector('#id_sec_b_q6_2').value = ''
+      document.querySelector('#id_sec_b_q6_3').value = ''
+
+      if(document.querySelector('#id_sec_b_q6_7') != null){
+
+        document.querySelector('#id_sec_b_q6_7').value = ''
+
+
+      }
+
+      }
+
+    if(document.querySelector('#id_sec_b_q6').value != 'Yes'){
+
+
+    document.querySelector("#page-top > div > div > form > div:nth-child(22)").hidden = true
+    document.querySelector('#id_sec_b_q6_1').required = false;
+    document.querySelector('#id_sec_b_q6_1').value = '';
+    document.querySelector("#page-top > div > div > form > div:nth-child(23)").hidden = false
+    document.querySelector('#id_sec_b_q6_2').value = '';
+
+    }
+
+
+    })
+
+
+    $('#id_sec_b_q6_2').on('change',()=> {
+
+    if(document.querySelector('#id_sec_b_q6_2').value == 'Yes'){
+      
+
+    document.querySelector("#page-top > div > div > form > div:nth-child(24)").hidden = false
+
+    document.querySelector('#id_sec_b_q6_3').required = true;
+
+
+    }
+    if(document.querySelector('#id_sec_b_q6_2').value != 'Yes'){
+
+
+    document.querySelector("#page-top > div > div > form > div:nth-child(24)").hidden = true
+
+
+    }
+
+
+    })
+
+
+    });
+
+    if(document.querySelector("#page-top > div > div > form > div:nth-child(2) > ul")){
+
+      Swal.fire({
+      html:'<div class="card text-danger mb-3" style="max-width:20rem;background-color:#dc3545;font-family:Poppins-Regular">\
+      <div class="card-header" style="color:#ffffff;"><strong>E&nbspr&nbsp;r&nbsp;o&nbsp;r&nbsp;!</strong></div>\
+      </div>\
+      <div class="card text-white bg-danger mb-3" style="max-width: 20rem;font-family:Poppins-Regular">\
+      <div class="card-header" style="font-size:1.15rem;">One or more questions were not answered</div>\
+      </div>\
+      <div class="card text-white bg-danger mb-3" style="max-width: 20rem;font-family:Poppins-Regular">\
+        <div class="card-header" style="font-size:1.15rem;">Please make sure that all questions are answered and resubmit</div>\
+      </div>',
+      showConfirmButton: true,
+      showCancelButton: false,
+      allowOutsideClick: true,
+      width:350
+  })
+
+
+    }
+
+    
+$(document).ready(()=> { 
+    
+    $.getJSON("/countries/",
+      (data) => { 
+
+       let countriesList = '';
+      
+       $.each(data, (key, value) => { 
+         countriesList += '<option>' + value + '</option>'; 
+       }); 
+       $('#id_sec_a_q2').append(countriesList);
+       $('#id_sec_c_country_of_residence').append(countriesList);
+     }); 
+
+    })
+
+imageReferenceNumberGenerator = (length) => {
+   var result           = '';
+   var characters       = 'abcdefghijklmnopqrstuvwxyz0123456789';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+  }
+
+$("#submit_btn").on('click',()=>{
+
+//Replace current image
+if(document.querySelector("#id_nominee_image").value != '' && document.querySelector("#nominee_image-clear_id") != null){
+
+document.querySelector("#id_image_ref").value = imageReferenceNumberGenerator(12);
+}
+
+//No image update
+else if(document.querySelector("#id_nominee_image").value == '' && document.querySelector("#nominee_image-clear_id")  == null){
+  
+
+  document.querySelector("#id_image_ref").value = ''
+  
+}
+
+//Upload new image
+else if(document.querySelector("#id_nominee_image").value != '' && document.querySelector("#nominee_image-clear_id")  == null){
+  
+  document.querySelector("#id_image_ref").value = imageReferenceNumberGenerator(12);
+
+}
+
+
+})
+
+}
+
+
+$("#cancel_btn").on('click', ()=>{
+
+window.location.href = "{%url 'agraHome'%}"
+
+})
+
+
+autosize(document.querySelectorAll('textarea'));
+
+  </script>
+
+  
+</body>
+
+</html>

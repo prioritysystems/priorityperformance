@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>A.G.A|Nominations</title>
+        <link rel="icon" type="image/x-icon" href="/static/bootstrap/assets/img/logos/aga_logo_final_color.png" />
+        <!-- Font Awesome icons (free versionn)-->
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="/static/bootstrap/css/styles.css" rel="stylesheet" />
+
+        <style>
+
+        @media (min-width: 768px) {
+            header.masthead {     
+                padding-top: 17rem!important;
+                padding-bottom: 18rem!important;
+                
+            }
+
+        }
+
+        @media (min-width: 992px){
+        #mainNav {
+            background-color: #071a1d!important;
+        }
+        }
+
+        section#agra-nomination {
+            padding-top: 21px;
+            background-color: #f8f9fa !important;
+        }
+
+
+        .portfolio-caption {
+            color: #000000;
+        }
+
+        @media (min-width: 768px){
+        section {
+        padding: 2rem 0;
+
+            }
+        }
+
+        .page-section {
+            padding: 2rem;
+        }
+
+        div#success_modal_content{
+
+        margin: auto!important;
+        top: 200px!important;
+        max-width: calc(100vh - 200px);
+        background-size: contain;
+	    padding: 0px!important;
+        }
+
+        div#success-modal {
+        padding: 0px!important;
+        }
+
+    
+        .rounded-circle {
+        border-radius: 5% !important;
+        }
+
+        img#nominees_img {
+            height: 200px!important;
+            }
+
+
+        span.select2.select2-container.select2-container--default {
+            width: 106px!important;
+        }
+
+
+        .select2-results__option {
+            text-align: center!important;
+            }
+
+        
+        button.btn.btn-outline-success.my-2.my-sm-0 {
+            font-size: 11px;
+            width: 106px!important;
+        }
+
+        .btn-outline-success:hover {
+        color: #071a1d;
+        background-color: #f8f9fa!important;
+        border-color: #dc3545!important;
+
+        }
+
+
+        .btn-outline-success {
+            color: #ffffff;
+            border-color: #dc3545!important;
+            background: #dc3545!important;
+        }
+
+
+       /* a:hover {
+            color: #5897fb!important;
+        }*/
+
+
+        #portfolio .portfolio-item .portfolio-link .portfolio-hover:hover {
+        background: #071a1d!important;
+        opacity: 0.8!important;
+        border-radius: 5px!important;
+
+        }
+
+        #portfolio .portfolio-item .portfolio-link .portfolio-hover .portfolio-hover-content {
+        font-size: 1.25rem;
+        color: #ffffff!important;
+        }
+
+
+        .portfolio-caption-heading {
+         font-size: 1rem!important;
+         font-weight: 400!important; 
+
+        }
+
+
+        #portfolio .portfolio-item .portfolio-caption {
+        padding: inherit!important;
+        text-align: left!important;
+        background-color: #f8f9fa!important;
+        color: #000000!important;
+  
+        }
+
+
+        .form-group {
+        margin-bottom: auto!important;
+        }
+
+        </style>
+    </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+            <div class="container">
+                <!-- <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="/static/bootstrap/assets/img/navbar-logo.svg" alt="" /></a> -->
+                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars ml-1"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav text-uppercase ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{%url 'agraHome'%}">Home</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" style="color:#fed136">A.G.A Hall of Honour </a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{%url 'viewAGAFinalists'%}">Outstanding African Achievers</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+          
+        <section class="page-section" id="agra-nomination">
+            <div class="container">
+                <div class="text-center">
+                   
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+                <div class="row text-center">
+                    
+                    <div class="col-md-4" >
+                        
+                    <div class="form-row">
+  
+                    <div class="form-group col-md-4" id="year-group">
+
+          <form method="get" class="form-group" id="search-form">
+            {{ nomination_date_filter.form.as_p }}
+            <button class="btn btn-outline-success my-2 my-sm-0">Select By Year</button>
+          </form>
+
+             
+                    
+                    </div>
+                    </div>
+          </div>
+         
+
+                  
+                </div>
+            </div>
+
+        </section>
+
+
+
+        <!-- Nominees Grid-->
+        <section class="page-section bg-light" id="portfolio">
+            <div class="container">
+                <div class="text-center">
+
+
+                    <h3 class="section-heading text-uppercase">The A.G.A Hall Of Honour</h3>
+
+                    {%if count_aga_winners == 0%}
+
+                    <h3 class="section-subheading text-muted" style="font-size:1.75rem!important;font-weight:bold!important">
+                        <span style="font-size:1.75rem!important;font-size:bold!important;">No AGA Winners found for the selected period.
+                        </h3>
+                    {%else%}
+                    <h3 class="section-subheading text-muted" style="font-size:1.75rem!important;font-weight:bold!important">
+                        
+                        {%if count_aga_winners == 1 %}
+                        <span style="font-size:1.75rem!important;font-size:bold!important;">&nbsp;</span>Awarded African Genius
+                        {%endif%}
+
+                        {%if count_aga_winners > 1 %}
+                        <span style="font-size:1.75rem!important;font-size:bold!important;">&nbsp;</span>Awarded African Geniuses
+                        {%endif%}
+
+                    </h3>
+                    
+                    {%endif%}
+
+                </div>
+
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase"></h2>
+                </div>
+
+      
+              
+                <div class="row">
+
+                    {% for nomination in nomination_date_filter.qs %}
+
+                    {%if nomination.nominee_image != ''%}
+
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href=#{{nomination.modal_ref}}>       
+                                
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">View Bio</div>
+                                </div>
+                                <img class="mx-auto rounded-circle" src="/static/bootstrap/assets/img/nominee_images/{{nomination.nominee_image}}" alt="" id="nominees_img"/>
+                                
+                            </a>
+
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">{{nomination.sec_a_q1}}</div>
+
+                            <div class="portfolio-caption-heading">Country Of Residence:&nbsp;{{nomination.sec_a_q2}}</div>
+                            <div class="portfolio-caption-heading">Year Awarded:&nbsp;{{nomination.nomination_year}}</div>
+                        </div>
+                        </div>
+                    </div>
+                    
+
+                    <!--Profile Modal-->
+                    <div class="portfolio-modal modal fade" id="{{nomination.modal_ref}}"  tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="close-modal" data-dismiss="modal"><img src="/static/bootstrap/assets/img/close-icon.svg" alt="Close modal" /></div>
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8">
+                                            <div class="modal-body">
+                                               
+                                                <h3 class="text-uppercase">{{nomination.nomination_year}}&nbsp;A.G.A&nbsp;Honour</h3>
+                                                <h3 class="section-subheading text-muted" style="font-size:1.75rem!important;font-weight:bold!important">
+                                                    {{nomination.sec_a_q1}}</h3>
+                                                   
+                                                   
+                                            <img class="mx-auto rounded-circle" src="/static/bootstrap/assets/img/nominee_images/{{nomination.nominee_image}}" alt="" 
+                                                    id="nominees_img"/>
+                                                    
+
+                                               
+                                                {%if nomination.timeline != None%}
+
+                                                <div class="portfolio-caption-heading">{{nomination.timeline}}</div>
+
+                                                 {%endif%}
+
+                                                {%if nomination.profile_info != None%}
+                                               
+                                                 <p>{{nomination.profile_info}}</p>
+                                                
+                                                {%endif%}
+
+                                           
+                                            </div>
+
+                                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                                <i class="fas fa-times mr-1"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {%endif%}
+
+
+                    {%if nomination.nominee_image == ''%}
+
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="portfolio-item">
+                            <a class="portfolio-link" data-toggle="modal" href=#{{nomination.modal_ref}}>       
+                               
+                                <div class="portfolio-hover">
+                                    <div class="portfolio-hover-content">View Bio</div>
+                                </div>
+                                <img class="mx-auto rounded-circle" src="/static/bootstrap/assets/img/default_img_main.jpg" alt="" id="nominees_img"/>
+                                
+                            </a>
+
+                        <div class="portfolio-caption">
+                            <div class="portfolio-caption-heading">{{nomination.sec_a_q1}}</div>
+            
+                            <div class="portfolio-caption-heading">Country Of Residencee:&nbsp;{{nomination.sec_a_q2}}</div>
+                            <div class="portfolio-caption-heading">Year Awarded:&nbsp;{{nomination.nomination_year}}</div>
+
+                        </div>
+                        </div>
+                    </div>
+
+                    
+
+                    <!--Profile Modal:Default Image-->
+                    <div class="portfolio-modal modal fade" id="{{nomination.modal_ref}}"  tabindex="-1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="close-modal" data-dismiss="modal"><img src="/static/bootstrap/assets/img/close-icon.svg" alt="Close modal" /></div>
+                                <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-lg-8">
+                                            <div class="modal-body">
+                                               
+                                                <h3 class="text-uppercase">{{nomination.nomination_year}}&nbsp;A.G.A&nbsp;Honour</h3>
+                                                <h3 class="section-subheading text-muted" style="font-size:1.75rem!important;font-weight:bold!important">
+                                                    {{nomination.sec_a_q1}}</h3>
+                                                    
+                                                <img class="mx-auto rounded-circle" src="/static/bootstrap/assets/img/default_img_main.jpg" alt="" id="nominees_img"/>
+
+                                                
+
+                                                 {%if nomination.timeline != None%}
+
+                                                <div class="portfolio-caption-heading">{{nomination.timeline}}</div>
+
+                                                 {%endif%}
+
+                                                {%if nomination.profile_info != None%}
+                                               
+                                                 <p>{{nomination.profile_info}}</p>
+                                                
+                                                {%endif%}
+
+                                            </div>
+                                            <button class="btn btn-primary" data-dismiss="modal" type="button">
+                                                    <i class="fas fa-times mr-1"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {%endif%}
+                   
+          
+                    {%endfor%}
+                </div>
+               
+            </div>
+        </section>
+        
+        
+        <!-- Contact-->
+        <section class="page-section" id="contact">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase"></h2>
+                    <h3 class="section-subheading text-muted"></h3>
+                </div>
+                
+            </div>
+        </section>
+
+
+        {% if messages %}
+        <div class="portfolio-modal modal fade" id="success-modal"  tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content" id="success_modal_content">
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                   
+                                    {% for message in messages %}
+                                    <h3 class="messages" {% if message.tags %} class="{{ message.tags }}"{% endif %}class="text-uppercase">Thank you!</h3>
+                                    <br>
+                                    <h4 class="messages">Your nomination has been submitted</h4>
+                                    <h3>An important notification email has been sent to the email address you provided.</h3>
+                                    {%endfor%}
+                                    
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button" 
+                                        style="width: 40%!important;background-color: #ffffff;border-color:#5dc8e4;color:#5dc8e4">
+                                       
+                                        Close
+                                        
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endif %}
+
+
+        <!-- Footer-->
+        {%include 'layouts/footer.html'%}
+
+        
+        <!-- Bootstrap core JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <!-- Contact form JS-->
+        <script src="/static/bootstrap/assets/mail/jqBootstrapValidation.js"></script>
+        <script src="/static/bootstrap/assets/mail/contact_me.js"></script>
+        <!-- Core theme JS-->
+        <script src="/static/bootstrap/js/scripts.js"></script>
+
+        <script>
+
+            if($("#success_message")){
+    
+                $("#success-modal").modal('show');
+            }
+
+        </script>
+
+<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+
+<script type="text/javascript">
+    //Change selectize mode to be searchable
+    $(document).ready(function () {
+
+    $('select').select2({
+      // placeholder: 'Select...',
+      allowClear: false,
+    });
+    
+    });
+
+
+
+ $("select").change(()=> {
+
+    document.getElementById("search-form").submit()
+
+ });
+
+
+
+
+</script>
+           
+       
+    </body>
+</html>
