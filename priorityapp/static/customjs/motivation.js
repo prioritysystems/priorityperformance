@@ -70,7 +70,6 @@ const skillApplication = () => {
 }
 
 
-
 const awardDetails = () => {
     Swal.fire({
         text: 'Please don’t forget to mention the name of the award, where it is from and the year.',

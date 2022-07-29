@@ -63,7 +63,6 @@ def priority_home(request):
     return render(request,template,context)
 
 
-
 #AGA: African Genius Award
 def aga_home(request):
     
