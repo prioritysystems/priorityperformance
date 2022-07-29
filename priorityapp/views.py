@@ -29,6 +29,7 @@ nominations_closing_date = datetime.datetime(current_year,1,31).date()
 nominations_opening_date = datetime.datetime(current_year,8,1).date()
 
 nominations_open = (todays_date <= nominations_closing_date ) or (todays_date  >= nominations_opening_date )
+# nominations_open = True
 
 nominations_open_jan =  todays_date  <= nominations_closing_date
 nominations_open_aug =  todays_date  >= nominations_opening_date
@@ -69,6 +70,7 @@ def aga_home(request):
     
     template = "aga-templates/aga_home.html" 
     
+    #nominations_open is defined in the global variables
     context = {"current_year":current_year,"todays_date":todays_date,"nominations_open":nominations_open}
 
     return render(request,template,context)
