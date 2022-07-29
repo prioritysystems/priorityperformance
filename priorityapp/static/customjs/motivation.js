@@ -15,8 +15,6 @@ const skillCategory = () => {
     sessionStorage.setItem('skillCategory', 'clicked')
 
 }
-
-
 const skillRecognition = () => {
 
     Swal.fire({
